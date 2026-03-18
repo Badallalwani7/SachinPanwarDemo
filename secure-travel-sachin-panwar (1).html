@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Travel by Sachin Panwar | India's Safest Travel Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', sans-serif; background: #fff; color: #222; overflow-x: hidden; }
+
+/* ── NAVBAR ── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 40px; height: 68px;
+}
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-logo-icon {
+  width: 40px; height: 40px; background: #e8462a; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; color: #fff; font-size: 18px;
+}
+.nav-logo-text { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 18px; color: #222; letter-spacing: -0.5px; }
+.nav-logo-text span { color: #e8462a; }
+.nav-logo-sub { font-size: 9px; color: #888; letter-spacing: 2px; text-transform: uppercase; display: block; margin-top: -3px; }
+
+.nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+.nav-links > li > a {
+  display: block; padding: 8px 14px; font-size: 13px; font-weight: 500;
+  color: #333; text-decoration: none; border-radius: 6px; transition: all 0.2s;
+}
+.nav-links > li > a:hover { background: #fef3f1; color: #e8462a; }
+.nav-live-badge {
+  background: linear-gradient(135deg, #e8462a, #ff6b4a);
+  color: #fff; font-size: 10px; font-weight: 700; padding: 4px 12px;
+  border-radius: 20px; letter-spacing: 0.5px; text-decoration: none;
+  display: flex; align-items: center; gap: 5px;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(232,70,42,0.4)} 50%{box-shadow:0 0 0 6px rgba(232,70,42,0)} }
+.nav-live-dot { width:6px;height:6px;background:#fff;border-radius:50%;display:inline-block; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.nav-phone { font-size: 13px; font-weight: 600; color: #222; text-decoration: none; }
+.nav-cta {
+  background: #e8462a; color: #fff; padding: 9px 20px; border-radius: 6px;
+  font-size: 13px; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.2s;
+}
+.nav-cta:hover { background: #c93820; transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  margin-top: 68px; position: relative;
+  min-height: calc(100vh - 68px); display: flex; align-items: center; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #0a1628 0%, #0f2d1a 40%, #1a0a08 100%);
+}
+.hero-scene {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 25% 60%, rgba(20,80,40,0.55) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 35%, rgba(60,20,10,0.45) 0%, transparent 45%);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);
+}
+.hero-content {
+  position: relative; z-index: 2; padding: 60px 80px; max-width: 680px;
+  animation: fadeUp 0.9s ease both;
+}
+@keyframes fadeUp { from{opacity:0;transform:translateY(36px)} to{opacity:1;transform:translateY(0)} }
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(232,70,42,0.18); border: 1px solid rgba(232,70,42,0.45);
+  color: #ff8a74; font-size: 11px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 24px;
+}
+.hero-h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(44px, 6vw, 72px); font-weight: 900; line-height: 1.05; color: #fff; margin-bottom: 4px;
+}
+.hero-rotate-track { height: clamp(44px, 6vw, 72px); overflow: hidden; margin-bottom: 24px; }
+.hero-rotate-inner { animation: slideWords 9s infinite; }
+.hero-rotate-inner > div {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(44px, 6vw, 72px); font-weight: 900; line-height: 1.05; color: #e8462a;
+  height: clamp(44px, 6vw, 72px);
+}
+@keyframes slideWords {
+  0%,20%  { transform:translateY(0) }
+  25%,45% { transform:translateY(-100%) }
+  50%,70% { transform:translateY(-200%) }
+  75%,95% { transform:translateY(-300%) }
+  100%    { transform:translateY(0) }
+}
+.hero-tagline { font-size: 15px; color: rgba(255,255,255,0.65); font-weight: 400; line-height: 1.7; margin-bottom: 10px; }
+.hero-tagline b { color: rgba(255,255,255,0.9); }
+.hero-hashtag { font-size: 13px; color: #ff8a74; font-weight: 700; letter-spacing: 1px; margin-bottom: 36px; }
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.hbtn-primary {
+  background: #e8462a; color: #fff; padding: 14px 32px; border-radius: 8px;
+  font-size: 14px; font-weight: 700; text-decoration: none; letter-spacing: 0.3px;
+  transition: all 0.2s; font-family: 'Poppins', sans-serif;
+}
+.hbtn-primary:hover { background: #c93820; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,70,42,0.4); }
+.hbtn-secondary {
+  background: rgba(255,255,255,0.12); color: #fff; padding: 14px 32px; border-radius: 8px;
+  font-size: 14px; font-weight: 600; text-decoration: none; border: 1px solid rgba(255,255,255,0.28);
+  transition: all 0.2s; backdrop-filter: blur(4px);
+}
+.hbtn-secondary:hover { background: rgba(255,255,255,0.2); }
+
+/* Hero right floating cards */
+.hero-float {
+  position: absolute; right: 80px; top: 50%; transform: translateY(-50%);
+  z-index: 2; display: flex; flex-direction: column; gap: 14px;
+  animation: fadeUp 0.9s 0.3s ease both;
+}
+.hfloat-card {
+  background: rgba(255,255,255,0.1); backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.18); border-radius: 14px;
+  padding: 18px 24px; text-align: center; min-width: 148px;
+  animation: bobble 3s ease-in-out infinite;
+}
+.hfloat-card:nth-child(2){animation-delay:0.5s} .hfloat-card:nth-child(3){animation-delay:1s}
+@keyframes bobble { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+.hfloat-num { font-family:'Montserrat',sans-serif; font-size:34px; font-weight:900; color:#fff; line-height:1; }
+.hfloat-label { font-size:11px; color:rgba(255,255,255,0.6); letter-spacing:1.5px; text-transform:uppercase; margin-top:4px; }
+
+/* Hero review bar */
+.hero-review-bar {
+  position: absolute; bottom: 28px; left: 80px; right: 80px; z-index: 2;
+  background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.16); border-radius: 12px;
+  padding: 14px 24px; display: flex; align-items: center; gap: 20px;
+  animation: fadeUp 0.9s 0.5s ease both;
+}
+.hrev-avatars { display: flex; }
+.hrev-av {
+  width: 30px; height: 30px; border-radius: 50%; border: 2px solid #fff;
+  margin-left: -8px; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800; color: #fff;
+}
+.hrev-avatars .hrev-av:first-child { margin-left: 0; }
+.hrev-text { font-size: 13px; color: rgba(255,255,255,0.85); }
+.hrev-text b { color: #fff; }
+.hrev-stars { margin-left: auto; color: #ffc107; font-size: 14px; font-weight: 700; }
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: #fff; border-bottom: 1px solid #efefef;
+  display: flex; justify-content: center;
+}
+.sb-item {
+  flex: 1; text-align: center; padding: 26px 16px; max-width: 200px;
+  border-right: 1px solid #efefef; transition: background 0.2s; cursor: default;
+}
+.sb-item:last-child { border-right: none; }
+.sb-item:hover { background: #fef3f1; }
+.sb-num { font-family:'Montserrat',sans-serif; font-size:30px; font-weight:900; color:#e8462a; line-height:1; }
+.sb-label { font-size:12px; color:#888; margin-top:4px; font-weight:500; }
+
+/* ── SECTIONS ── */
+.section { padding: 72px 80px; }
+.section-alt { background: #f9f9f9; }
+.s-eyebrow {
+  font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase;
+  color:#e8462a; margin-bottom:10px; display:flex; align-items:center; gap:8px;
+}
+.s-eyebrow.ctr { justify-content:center; }
+.s-title { font-family:'Montserrat',sans-serif; font-size:clamp(26px,3.5vw,38px); font-weight:800; color:#1a1a1a; line-height:1.2; }
+.s-row { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:32px; flex-wrap:wrap; gap:16px; }
+.view-all { font-size:13px; font-weight:600; color:#e8462a; text-decoration:none; white-space:nowrap; transition: gap 0.2s; display:flex; align-items:center; gap:4px; }
+.view-all:hover { gap:8px; }
+
+/* ── CATEGORIES ── */
+.cat-grid { display:grid; grid-template-columns:repeat(10,1fr); gap:16px; margin-top:36px; }
+.cat-item { display:flex; flex-direction:column; align-items:center; gap:10px; cursor:pointer; transition:transform 0.25s; }
+.cat-item:hover { transform:translateY(-5px); }
+.cat-circle {
+  width:88px; height:88px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:36px; box-shadow:0 4px 16px rgba(0,0,0,0.08); border:2px solid transparent;
+  transition:border-color 0.2s, box-shadow 0.2s;
+}
+.cat-item:hover .cat-circle { border-color:#e8462a; box-shadow:0 6px 24px rgba(232,70,42,0.2); }
+.cat-label { font-size:12px; font-weight:600; color:#333; text-align:center; line-height:1.3; }
+
+/* ── FILTER TABS ── */
+.filter-tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:28px; }
+.f-tab {
+  padding:8px 20px; border-radius:20px; font-size:13px; font-weight:600; cursor:pointer;
+  border:2px solid #e8e8e8; background:#fff; color:#666; transition:all 0.2s; font-family:'Poppins',sans-serif;
+}
+.f-tab.active { border-color:#e8462a; background:#e8462a; color:#fff; }
+.f-tab:hover:not(.active) { border-color:#e8462a; color:#e8462a; }
+
+/* ── TRIP CARDS ── */
+.trips-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.trip-card {
+  background:#fff; border-radius:16px; overflow:hidden;
+  box-shadow:0 2px 16px rgba(0,0,0,0.07); border:1px solid #f0f0f0;
+  transition:transform 0.3s, box-shadow 0.3s; cursor:pointer;
+}
+.trip-card:hover { transform:translateY(-7px); box-shadow:0 18px 52px rgba(0,0,0,0.14); }
+.trip-img-wrap {
+  position:relative; aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; font-size:72px;
+}
+.trip-img-overlay { position:absolute; inset:0; }
+.trip-badges { position:absolute; top:12px; left:12px; z-index:2; display:flex; gap:6px; flex-wrap:wrap; }
+.tbadge { font-size:10px; font-weight:800; letter-spacing:0.5px; text-transform:uppercase; padding:4px 10px; border-radius:4px; }
+.tb-red { background:#e8462a; color:#fff; }
+.tb-dark { background:#1a1a1a; color:#fff; }
+.tb-blue { background:#0070f3; color:#fff; }
+.tb-green { background:#16a34a; color:#fff; }
+.trip-rating-chip {
+  position:absolute; bottom:12px; left:12px; z-index:2;
+  background:rgba(0,0,0,0.58); backdrop-filter:blur(4px); border-radius:20px;
+  padding:4px 10px; font-size:12px; color:#fff; font-weight:600;
+  display:flex; align-items:center; gap:4px;
+}
+.trip-body { padding:16px; }
+.trip-route { font-size:11px; color:#aaa; text-transform:uppercase; letter-spacing:1px; margin-bottom:5px; }
+.trip-name { font-size:14px; font-weight:700; color:#1a1a1a; line-height:1.4; margin-bottom:10px; }
+.trip-tags { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+.ttag { font-size:11px; color:#666; background:#f5f5f5; padding:3px 8px; border-radius:4px; font-weight:500; }
+.trip-footer { display:flex; align-items:center; justify-content:space-between; padding-top:12px; border-top:1px solid #f0f0f0; }
+.tprice-old { font-size:11px; color:#bbb; text-decoration:line-through; }
+.tprice { font-family:'Montserrat',sans-serif; font-size:20px; font-weight:900; color:#e8462a; line-height:1; }
+.tprice-per { font-size:10px; color:#999; }
+.tbtn {
+  background:#e8462a; color:#fff; border:none; padding:9px 18px; border-radius:7px;
+  font-size:12px; font-weight:700; cursor:pointer; font-family:'Poppins',sans-serif; transition:background 0.2s;
+}
+.tbtn:hover { background:#c93820; }
+
+/* ── PROMO BANNER ── */
+.promo-wrap { padding:0 80px 72px; background:#fff; }
+.promo-inner {
+  border-radius:20px; overflow:hidden;
+  background:linear-gradient(135deg,#e8462a 0%,#c93820 50%,#a02a14 100%);
+  padding:48px 56px; display:flex; align-items:center; justify-content:space-between; gap:32px;
+  position:relative;
+}
+.promo-inner::before {
+  content:''; position:absolute; inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.promo-left { position:relative; z-index:1; }
+.promo-tag { font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-bottom:10px; }
+.promo-title { font-family:'Montserrat',sans-serif; font-size:36px; font-weight:900; color:#fff; line-height:1.1; margin-bottom:12px; }
+.promo-desc { font-size:14px; color:rgba(255,255,255,0.78); max-width:500px; line-height:1.65; }
+.promo-cta {
+  position:relative; z-index:1; background:#fff; color:#e8462a; padding:14px 32px; border-radius:8px;
+  font-size:14px; font-weight:800; text-decoration:none; white-space:nowrap; flex-shrink:0;
+  font-family:'Montserrat',sans-serif; transition:transform 0.2s, box-shadow 0.2s; display:block; text-align:center;
+}
+.promo-cta:hover { transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,0.2); }
+
+/* ── REVIEWS MARQUEE ── */
+.reviews-overflow { overflow:hidden; margin-top:40px; }
+.reviews-track { display:flex; gap:24px; animation:marqueeScroll 32s linear infinite; width:max-content; }
+@keyframes marqueeScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.reviews-track:hover { animation-play-state:paused; }
+.rev-card {
+  background:#fff; border:1px solid #f0f0f0; border-radius:16px;
+  padding:24px; width:340px; flex-shrink:0; box-shadow:0 2px 16px rgba(0,0,0,0.05);
+  transition:box-shadow 0.3s, transform 0.3s;
+}
+.rev-card:hover { box-shadow:0 8px 32px rgba(0,0,0,0.1); transform:translateY(-3px); }
+.rev-head { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.rev-av { width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:16px; color:#fff; flex-shrink:0; }
+.rev-name { font-weight:700; font-size:14px; color:#1a1a1a; }
+.rev-trip { font-size:12px; color:#999; }
+.rev-stars { color:#ffc107; font-size:13px; margin-bottom:10px; }
+.rev-text { font-size:13px; line-height:1.65; color:#555; }
+
+/* ── WHY US ── */
+.why-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; margin-top:48px; }
+.why-img-box {
+  border-radius:20px; aspect-ratio:4/5;
+  background:linear-gradient(135deg,#1a0808 0%,#0f2d1a 100%);
+  display:flex; align-items:center; justify-content:center;
+  font-size:110px; position:relative; overflow:hidden;
+}
+.why-img-box::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.5),transparent);
+}
+.why-years-badge {
+  position:absolute; bottom:-18px; right:-18px; z-index:2;
+  background:#e8462a; color:#fff; border-radius:16px; padding:18px 22px; text-align:center;
+  box-shadow:0 8px 32px rgba(232,70,42,0.4);
+}
+.wyb-num { font-family:'Montserrat',sans-serif; font-size:34px; font-weight:900; line-height:1; }
+.wyb-lbl { font-size:11px; font-weight:600; opacity:0.85; margin-top:2px; }
+.why-desc { font-size:14px; color:#555; line-height:1.8; margin-bottom:14px; }
+.why-feats { display:flex; flex-direction:column; gap:16px; margin-top:32px; }
+.wfeat {
+  display:flex; gap:16px; align-items:flex-start; padding:18px 20px; border-radius:12px;
+  border:1px solid #f0f0f0; transition:all 0.25s; cursor:default;
+}
+.wfeat:hover { border-color:#e8462a; background:#fef3f1; transform:translateX(6px); }
+.wfeat-icon {
+  width:46px; height:46px; border-radius:12px; background:#fef3f1; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-size:22px; transition:background 0.25s;
+}
+.wfeat:hover .wfeat-icon { background:#e8462a; }
+.wfeat-title { font-weight:700; font-size:14px; color:#1a1a1a; margin-bottom:3px; }
+.wfeat-desc { font-size:13px; color:#888; line-height:1.5; }
+
+/* ── ABOUT SACHIN ── */
+.sachin-wrap {
+  background:#1a1a1a; color:#fff; padding:80px;
+  display:grid; grid-template-columns:1fr 1.6fr; gap:72px; align-items:center;
+}
+.sachin-portrait-area { text-align:center; }
+.sachin-circle {
+  width:268px; height:268px; border-radius:50%; margin:0 auto 20px;
+  background:linear-gradient(135deg,#e8462a 0%,#ff9966 100%);
+  display:flex; align-items:center; justify-content:center; font-size:96px;
+  border:6px solid rgba(232,70,42,0.3); box-shadow:0 0 56px rgba(232,70,42,0.2);
+}
+.sachin-name { font-family:'Montserrat',sans-serif; font-size:22px; font-weight:800; color:#fff; margin-bottom:4px; }
+.sachin-role-lbl { font-size:12px; color:#e8462a; font-weight:600; letter-spacing:2px; text-transform:uppercase; }
+.sachin-txt .s-title { color:#fff; margin-bottom:20px; }
+.sachin-txt p { font-size:14px; color:rgba(255,255,255,0.62); line-height:1.8; margin-bottom:14px; }
+.sachin-quote {
+  margin-top:24px; padding:22px 26px;
+  background:rgba(232,70,42,0.1); border-left:4px solid #e8462a; border-radius:0 12px 12px 0;
+  font-size:15px; font-style:italic; color:rgba(255,255,255,0.82); line-height:1.65;
+}
+.sachin-quote cite { display:block; margin-top:10px; font-size:13px; font-style:normal; color:#e8462a; font-weight:700; }
+.sachin-badges { display:flex; gap:10px; flex-wrap:wrap; margin-top:24px; }
+.sbadge {
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12);
+  border-radius:8px; padding:9px 14px; font-size:12px; font-weight:600; color:rgba(255,255,255,0.78);
+  display:flex; align-items:center; gap:6px;
+}
+
+/* ── DESTINATIONS ── */
+.dest-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:220px 220px;
+  gap:16px; margin-top:40px;
+}
+.dest-card {
+  border-radius:16px; overflow:hidden; position:relative; cursor:pointer;
+  display:flex; align-items:flex-end; transition:transform 0.3s;
+}
+.dest-card:hover { transform:scale(1.02); }
+.dest-card.feat { grid-row:span 2; }
+.dest-bg-layer {
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  font-size:80px; opacity:0.8;
+}
+.dest-card.feat .dest-bg-layer { font-size:120px; }
+.dest-grad-layer { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.12) 55%,transparent 100%); }
+.dest-info { position:relative; z-index:1; padding:20px; width:100%; }
+.dest-ctry { font-size:11px; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:3px; }
+.dest-name { font-family:'Montserrat',sans-serif; font-size:20px; font-weight:800; color:#fff; margin-bottom:4px; }
+.dest-card.feat .dest-name { font-size:28px; }
+.dest-pkgs { font-size:12px; color:rgba(255,255,255,0.68); }
+.dest-arrow-btn {
+  position:absolute; top:14px; right:14px; z-index:1;
+  width:32px; height:32px; background:rgba(255,255,255,0.15); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px;
+  opacity:0; transition:opacity 0.3s;
+}
+.dest-card:hover .dest-arrow-btn { opacity:1; }
+
+/* ── FAQ ── */
+.faq-wrap { max-width:800px; margin:40px auto 0; }
+.faq-item { border:1px solid #e8e8e8; border-radius:12px; margin-bottom:10px; overflow:hidden; transition:border-color 0.2s; }
+.faq-item.open { border-color:#e8462a; }
+.faq-q {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 24px; cursor:pointer; font-weight:600; font-size:14px; color:#1a1a1a;
+  background:#fff; user-select:none; transition:background 0.2s;
+}
+.faq-q:hover { background:#fef3f1; }
+.faq-icon { font-size:20px; color:#e8462a; transition:transform 0.3s; line-height:1; font-weight:400; }
+.faq-item.open .faq-icon { transform:rotate(45deg); }
+.faq-a {
+  max-height:0; overflow:hidden; padding:0 24px;
+  transition:max-height 0.35s ease, padding 0.35s ease;
+  font-size:14px; color:#666; line-height:1.75; background:#fef9f8;
+}
+.faq-item.open .faq-a { max-height:200px; padding:0 24px 18px; }
+
+/* ── RECOGNITIONS ── */
+.recog-row {
+  display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;
+  margin-top:36px; padding:28px; background:#f5f5f5; border-radius:16px;
+}
+.recog-chip {
+  display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; color:#555;
+  padding:10px 18px; background:#fff; border-radius:8px; border:1px solid #e8e8e8; transition:all 0.2s;
+}
+.recog-chip:hover { border-color:#e8462a; color:#e8462a; }
+.recog-ico { font-size:18px; }
+
+/* ── NEWSLETTER ── */
+.newsletter-wrap {
+  background:linear-gradient(135deg,#0a1628 0%,#1a0808 100%);
+  padding:72px 80px; text-align:center; position:relative; overflow:hidden;
+}
+.newsletter-wrap::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 100%,rgba(232,70,42,0.12) 0%,transparent 60%);
+}
+.newsletter-wrap .s-eyebrow { justify-content:center; color:#e8462a; position:relative; margin-bottom:14px; }
+.newsletter-wrap .s-title { color:#fff; position:relative; }
+.newsletter-sub { font-size:14px; color:rgba(255,255,255,0.5); margin-top:10px; margin-bottom:32px; position:relative; }
+.nl-form {
+  display:flex; max-width:460px; margin:0 auto; position:relative;
+  border-radius:8px; overflow:hidden; box-shadow:0 8px 32px rgba(0,0,0,0.3);
+}
+.nl-input {
+  flex:1; padding:16px 20px; background:rgba(255,255,255,0.1); border:none; outline:none;
+  color:#fff; font-size:14px; font-family:'Poppins',sans-serif; backdrop-filter:blur(4px);
+}
+.nl-input::placeholder { color:rgba(255,255,255,0.4); }
+.nl-btn {
+  background:#e8462a; color:#fff; border:none; padding:16px 28px; font-size:14px;
+  font-weight:700; cursor:pointer; font-family:'Poppins',sans-serif; white-space:nowrap; transition:background 0.2s;
+}
+.nl-btn:hover { background:#c93820; }
+
+/* ── FOOTER ── */
+footer { background:#111; color:#fff; padding:60px 80px 32px; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.08); margin-bottom:32px; }
+.footer-brand-p { font-size:13px; color:rgba(255,255,255,0.5); line-height:1.7; margin:16px 0 18px; max-width:280px; }
+.footer-contacts a { display:block; font-size:13px; color:rgba(255,255,255,0.5); text-decoration:none; margin-bottom:6px; transition:color 0.2s; }
+.footer-contacts a:hover { color:#e8462a; }
+.fc h4 { font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#fff; margin-bottom:20px; }
+.fc ul { list-style:none; }
+.fc li { margin-bottom:10px; }
+.fc a { font-size:13px; color:rgba(255,255,255,0.5); text-decoration:none; transition:color 0.2s; }
+.fc a:hover { color:#e8462a; }
+.footer-bottom { display:flex; align-items:center; justify-content:space-between; font-size:12px; color:rgba(255,255,255,0.3); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .navbar,.section,.promo-wrap,.newsletter-wrap,footer,.sachin-wrap { padding-left:40px; padding-right:40px; }
+  .hero-content { padding:60px 40px; }
+  .hero-float,.hero-review-bar { display:none; }
+  .trips-grid { grid-template-columns:repeat(2,1fr); }
+  .why-grid,.sachin-wrap { grid-template-columns:1fr; }
+  .dest-grid { grid-template-columns:repeat(2,1fr); }
+  .cat-grid { grid-template-columns:repeat(5,1fr); }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:768px){
+  .navbar { padding:0 16px; } .nav-links { display:none; }
+  .hero-content { padding:48px 20px; }
+  .section,.promo-wrap,.newsletter-wrap,footer,.sachin-wrap { padding:48px 20px; }
+  .promo-inner { flex-direction:column; }
+  .trips-grid { grid-template-columns:1fr; }
+  .cat-grid { grid-template-columns:repeat(4,1fr); }
+  .dest-grid { grid-template-columns:1fr; grid-template-rows:auto; }
+  .dest-card.feat { grid-row:auto; }
+  .footer-grid { grid-template-columns:1fr; }
+  .stats-bar { flex-wrap:wrap; }
+  .sb-item { max-width:50%; border-bottom:1px solid #efefef; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">🛡️</div>
+    <div>
+      <div class="nav-logo-text">Secure<span>Travel</span></div>
+      <span class="nav-logo-sub">by Sachin Panwar</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#" class="nav-live-badge"><span class="nav-live-dot"></span> Good Friday LIVE NOW</a></li>
+    <li><a href="#trips">Backpacking Trips ▾</a></li>
+    <li><a href="#trips">Best Sellers ▾</a></li>
+    <li><a href="#trips">Biking Trips ▾</a></li>
+    <li><a href="#trips">More ▾</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:+919797000000" class="nav-phone">📞 +91 97970 00000</a>
+    <a href="#" class="nav-cta">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-scene"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">🛡️ India's Safest Travel Community</div>
+    <div class="hero-h1">Book Your</div>
+    <div class="hero-h1">Trip to</div>
+    <div class="hero-rotate-track">
+      <div class="hero-rotate-inner">
+        <div>Ladakh</div>
+        <div>Spiti Valley</div>
+        <div>Kashmir</div>
+        <div>The Himalayas</div>
+      </div>
+    </div>
+    <p class="hero-tagline"><b>Wander | Travel | Connect | Repeat</b><br>Where Adventure meets Community</p>
+    <p class="hero-hashtag">#SecureTravelerForLife</p>
+    <div class="hero-btns">
+      <a href="#trips" class="hbtn-primary">Explore All Trips</a>
+      <a href="#about" class="hbtn-secondary">Why Secure Travel?</a>
+    </div>
+  </div>
+  <div class="hero-float">
+    <div class="hfloat-card"><div class="hfloat-num">50K+</div><div class="hfloat-label">Safe Travelers</div></div>
+    <div class="hfloat-card"><div class="hfloat-num">8,000+</div><div class="hfloat-label">Trips Done</div></div>
+    <div class="hfloat-card"><div class="hfloat-num">4.9 ★</div><div class="hfloat-label">Avg Rating</div></div>
+  </div>
+  <div class="hero-review-bar">
+    <div class="hrev-avatars">
+      <div class="hrev-av" style="background:linear-gradient(135deg,#e8462a,#ff9966)">R</div>
+      <div class="hrev-av" style="background:linear-gradient(135deg,#0070f3,#00c6fb)">A</div>
+      <div class="hrev-av" style="background:linear-gradient(135deg,#16a34a,#4ade80)">P</div>
+      <div class="hrev-av" style="background:linear-gradient(135deg,#7c3aed,#c084fc)">S</div>
+    </div>
+    <div class="hrev-text"><b>10,000+ Reviews</b> — Trusted by travelers across India</div>
+    <div class="hrev-stars">★★★★★ 4.9/5</div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="sb-item"><div class="sb-num">10,000+</div><div class="sb-label">Reviews</div></div>
+  <div class="sb-item"><div class="sb-num">80,000+</div><div class="sb-label">Satisfied Travelers</div></div>
+  <div class="sb-item"><div class="sb-num">50+</div><div class="sb-label">Destinations</div></div>
+  <div class="sb-item"><div class="sb-num">9 Years+</div><div class="sb-label">Experience</div></div>
+  <div class="sb-item"><div class="sb-num">100%</div><div class="sb-label">Safety Commitment</div></div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section" id="explore">
+  <div class="s-row">
+    <div><div class="s-eyebrow">Browse By Type</div><h2 class="s-title">Find Your Adventure</h2></div>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-item"><div class="cat-circle" style="background:linear-gradient(135deg,#fef3f1,#fde0d9)">📅</div><span class="cat-label">Long Weekend</span></div>
+    <div class="cat-item"><div class="cat-circle" style="background:linear-gradient(135deg,#e8f4fd,#cce7fa)">✈️</div><span class="cat-label">International</span></div>
+    <div class="cat-item"><div class="cat-circle" style="background:linear-gradient(135deg,#fef3f1,#fde0d9)">🏔️</div><span class="cat-label">Ladakh</span></div>
+    <div class="cat-item"><div class="cat-circle" style="background:linear-gradient(135deg,#edfaf1,#d0f0dc)">❄️</div><span class="cat-label">Spiti</span></div>
+    <div class="cat-item"><div class="cat-circle" style="background:linear-gradient(135deg,#fef9e7,#fde68a)">⭐</div><span class="cat-label">New Launches</span></div>
+    <div class="cat-item"><div class="cat-circle" style="background:linear-gradient(135deg,#f3e8ff,#e0c6fa)">⛰️</div><span class="cat-label">Treks</span></div>
+    <div class="cat-item"><div class="cat-circle" style="background:linear-gradient(135deg,#fef3f1,#fde0d9)">🏍️</div><span class="cat-label">Biking</span></div>
+    <div class="cat-item"><div class="cat-circle" style="background:linear-gradient(135deg,#e8f4fd,#cce7fa)">🎒</div><span class="cat-label">Backpacking</span></div>
+    <div class="cat-item"><div class="cat-circle" style="background:linear-gradient(135deg,#fef0f6,#fad0e8)">👯‍♀️</div><span class="cat-label">All Girls</span></div>
+    <div class="cat-item"><div class="cat-circle" style="background:linear-gradient(135deg,#edfaf1,#d0f0dc)">🗺️</div><span class="cat-label">Customized</span></div>
+  </div>
+</section>
+
+<!-- TRIPS -->
+<section class="section section-alt" id="trips">
+  <div class="s-row">
+    <div><div class="s-eyebrow">Handcrafted Journeys</div><h2 class="s-title">Best Selling Trips</h2></div>
+    <a href="#" class="view-all">View All Trips →</a>
+  </div>
+  <div class="filter-tabs">
+    <button class="f-tab active">All Trips</button>
+    <button class="f-tab">Backpacking</button>
+    <button class="f-tab">Biking</button>
+    <button class="f-tab">Treks</button>
+    <button class="f-tab">International</button>
+  </div>
+  <div class="trips-grid">
+
+    <div class="trip-card">
+      <div class="trip-img-wrap">
+        <div class="trip-img-overlay" style="background:linear-gradient(135deg,#1a3d28,#071510)"></div>
+        <span style="position:relative;z-index:1">🏔️</span>
+        <div class="trip-badges"><span class="tbadge tb-red">Best Seller</span></div>
+        <div class="trip-rating-chip">★ 4.9 (10k+)</div>
+      </div>
+      <div class="trip-body">
+        <div class="trip-route">Delhi → Delhi</div>
+        <div class="trip-name">Winter Spiti Valley Expedition</div>
+        <div class="trip-tags"><span class="ttag">🗓️ 8N/9D</span><span class="ttag">📍 Himachal</span><span class="ttag">Mar–May</span></div>
+        <div class="trip-footer"><div><div class="tprice">₹23,500</div><div class="tprice-per">per person</div></div><button class="tbtn">Book Now</button></div>
+      </div>
+    </div>
+
+    <div class="trip-card">
+      <div class="trip-img-wrap">
+        <div class="trip-img-overlay" style="background:linear-gradient(135deg,#2a3a1a,#1a2a0e)"></div>
+        <span style="position:relative;z-index:1">🏕️</span>
+        <div class="trip-badges"><span class="tbadge tb-red">Best Seller</span></div>
+        <div class="trip-rating-chip">★ 4.8 (10k+)</div>
+      </div>
+      <div class="trip-body">
+        <div class="trip-route">Delhi → Delhi</div>
+        <div class="trip-name">Himachal Backpacking — Manali Kasol Jibhi</div>
+        <div class="trip-tags"><span class="ttag">🗓️ 6N/7D</span><span class="ttag">📍 Himachal</span></div>
+        <div class="trip-footer"><div><div class="tprice">₹18,500</div><div class="tprice-per">per person</div></div><button class="tbtn">Book Now</button></div>
+      </div>
+    </div>
+
+    <div class="trip-card">
+      <div class="trip-img-wrap">
+        <div class="trip-img-overlay" style="background:linear-gradient(135deg,#0a1628,#1a3a50)"></div>
+        <span style="position:relative;z-index:1">🦅</span>
+        <div class="trip-badges"><span class="tbadge tb-red">Best Seller</span></div>
+        <div class="trip-rating-chip">★ 4.9 (10k+)</div>
+      </div>
+      <div class="trip-body">
+        <div class="trip-route">Guwahati → Guwahati</div>
+        <div class="trip-name">Tawang Bike & Backpacking Expedition</div>
+        <div class="trip-tags"><span class="ttag">🗓️ 8N/9D</span><span class="ttag">📍 Arunachal</span></div>
+        <div class="trip-footer"><div><div class="tprice">₹38,500</div><div class="tprice-per">per person</div></div><button class="tbtn">Book Now</button></div>
+      </div>
+    </div>
+
+    <div class="trip-card">
+      <div class="trip-img-wrap">
+        <div class="trip-img-overlay" style="background:linear-gradient(135deg,#3a1a1a,#1a0808)"></div>
+        <span style="position:relative;z-index:1">❄️</span>
+        <div class="trip-badges"><span class="tbadge tb-dark">Custom</span></div>
+        <div class="trip-rating-chip">★ 4.8 (10k+)</div>
+      </div>
+      <div class="trip-body">
+        <div class="trip-route">Srinagar → Srinagar</div>
+        <div class="trip-name">Kashmir Winter Wonderland Trip</div>
+        <div class="trip-tags"><span class="ttag">🗓️ 5N/6D</span><span class="ttag">📍 Kashmir</span></div>
+        <div class="trip-footer"><div><div class="tprice">₹26,500</div><div class="tprice-per">per person</div></div><button class="tbtn">Book Now</button></div>
+      </div>
+    </div>
+
+    <div class="trip-card">
+      <div class="trip-img-wrap">
+        <div class="trip-img-overlay" style="background:linear-gradient(135deg,#1a3a1a,#0a2a0a)"></div>
+        <span style="position:relative;z-index:1">🌿</span>
+        <div class="trip-badges"><span class="tbadge tb-red">Best Seller</span></div>
+        <div class="trip-rating-chip">★ 4.9 (10k+)</div>
+      </div>
+      <div class="trip-body">
+        <div class="trip-route">Guwahati → Guwahati</div>
+        <div class="trip-name">Meghalaya & Kaziranga Safari Expedition</div>
+        <div class="trip-tags"><span class="ttag">🗓️ 6N/7D</span><span class="ttag">📍 North East</span></div>
+        <div class="trip-footer"><div><div class="tprice">₹27,500</div><div class="tprice-per">per person</div></div><button class="tbtn">Book Now</button></div>
+      </div>
+    </div>
+
+    <div class="trip-card">
+      <div class="trip-img-wrap">
+        <div class="trip-img-overlay" style="background:linear-gradient(135deg,#1a1a3a,#0a0a28)"></div>
+        <span style="position:relative;z-index:1">🏯</span>
+        <div class="trip-badges"><span class="tbadge tb-blue">International</span><span class="tbadge tb-green">Save ₹4,500</span></div>
+        <div class="trip-rating-chip">★ 4.9 (10k+)</div>
+      </div>
+      <div class="trip-body">
+        <div class="trip-route">Bagdogra → Bagdogra</div>
+        <div class="trip-name">Bhutan Bike Tour — 8 Days Kingdom Ride</div>
+        <div class="trip-tags"><span class="ttag">🗓️ 7N/8D</span><span class="ttag">📍 Bhutan</span></div>
+        <div class="trip-footer"><div><div class="tprice-old">₹45,000</div><div class="tprice">₹42,000</div><div class="tprice-per">per person</div></div><button class="tbtn">Book Now</button></div>
+      </div>
+    </div>
+
+    <div class="trip-card">
+      <div class="trip-img-wrap">
+        <div class="trip-img-overlay" style="background:linear-gradient(135deg,#0a2a3a,#0a1a28)"></div>
+        <span style="position:relative;z-index:1">🌊</span>
+        <div class="trip-badges"><span class="tbadge tb-blue">International</span></div>
+        <div class="trip-rating-chip">★ 4.9 (10k+)</div>
+      </div>
+      <div class="trip-body">
+        <div class="trip-route">Bali Airport → Bali Airport</div>
+        <div class="trip-name">Bali with Gili Island — Ubud, Nusa Penida & Kuta</div>
+        <div class="trip-tags"><span class="ttag">🗓️ 7N/8D</span><span class="ttag">📍 Indonesia</span></div>
+        <div class="trip-footer"><div><div class="tprice">₹54,500</div><div class="tprice-per">per person</div></div><button class="tbtn">Book Now</button></div>
+      </div>
+    </div>
+
+    <div class="trip-card">
+      <div class="trip-img-wrap">
+        <div class="trip-img-overlay" style="background:linear-gradient(135deg,#2a1a0a,#1a0a04)"></div>
+        <span style="position:relative;z-index:1">⛺</span>
+        <div class="trip-badges"><span class="tbadge tb-red">Best Seller</span></div>
+        <div class="trip-rating-chip">★ 4.8 (10k+)</div>
+      </div>
+      <div class="trip-body">
+        <div class="trip-route">Sankri → Sankri</div>
+        <div class="trip-name">Kedarkantha Summit Trek</div>
+        <div class="trip-tags"><span class="ttag">🗓️ 4N/5D</span><span class="ttag">📍 Uttarakhand</span></div>
+        <div class="trip-footer"><div><div class="tprice">₹7,500</div><div class="tprice-per">per person</div></div><button class="tbtn">Book Now</button></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<div class="promo-wrap">
+  <div class="promo-inner">
+    <div class="promo-left">
+      <div class="promo-tag">Our Promise to Every Traveler</div>
+      <div class="promo-title">Travel Secure.<br>Travel Free.</div>
+      <div class="promo-desc">Free travel insurance up to ₹4.5 lakhs, BMC & AMC certified trip leaders, 24/7 on-ground support, and fully vetted stays on every single trip. Safety isn't an add-on — it's Sachin's personal promise.</div>
+    </div>
+    <a href="#trips" class="promo-cta">🛡️ Explore Safe Trips</a>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<section class="section section-alt" id="reviews">
+  <div style="text-align:center">
+    <div class="s-eyebrow ctr">Real Experiences</div>
+    <h2 class="s-title">What Our Travelers Say</h2>
+  </div>
+  <div class="reviews-overflow">
+    <div class="reviews-track">
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#e8462a,#ff9966)">R</div><div><div class="rev-name">Riya Mehta</div><div class="rev-trip">Leh Ladakh Trip</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"Traveling solo to Ladakh felt completely safe. Sachin's team made sure I was never alone. The guides were knowledgeable and every route was pre-checked. Best decision I ever made!"</p></div>
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#0070f3,#00c6fb)">A</div><div><div class="rev-name">Arjun Sharma</div><div class="rev-trip">Spiti Bike Expedition</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"Our Spiti biking trip was flawlessly executed. The backup vehicle, the mechanical support, and the certified trip captain — everything screamed professionalism. Will book again!"</p></div>
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#16a34a,#4ade80)">P</div><div><div class="rev-name">Priya Kapoor</div><div class="rev-trip">All Girls Kashmir Trip</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"As an all-girls group, safety was our top priority. Secure Travel nailed it — female trip leader, verified hotels, and 24/7 support. Kashmir was breathtaking the whole time!"</p></div>
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#7c3aed,#c084fc)">S</div><div><div class="rev-name">Sneha Joshi</div><div class="rev-trip">Bhutan Group Tour</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"Booked two days before departure and Sachin's team sorted everything in 48 hours — flights, hotels, guide, insurance. The trip was absolutely surreal. Highly recommend!"</p></div>
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#d97706,#fcd34d)">D</div><div><div class="rev-name">Dev Anand</div><div class="rev-trip">Meghalaya Expedition</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"The Meghalaya trek was magical. The itinerary was perfect, stays were comfortable, and the team had answers before we even had questions. Truly value for money!"</p></div>
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#e8462a,#ff9966)">V</div><div><div class="rev-name">Vikram Bose</div><div class="rev-trip">Corporate Rishikesh Retreat</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"Our corporate retreat to Rishikesh was handled perfectly. Team-building activities, river rafting, and riverside dinners — all seamlessly coordinated. The team was incredible."</p></div>
+      <!-- Duplicate for seamless loop -->
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#e8462a,#ff9966)">R</div><div><div class="rev-name">Riya Mehta</div><div class="rev-trip">Leh Ladakh Trip</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"Traveling solo to Ladakh felt completely safe. Sachin's team made sure I was never alone. The guides were knowledgeable and every route was pre-checked. Best decision I ever made!"</p></div>
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#0070f3,#00c6fb)">A</div><div><div class="rev-name">Arjun Sharma</div><div class="rev-trip">Spiti Bike Expedition</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"Our Spiti biking trip was flawlessly executed. The backup vehicle, the mechanical support, and the certified trip captain — everything screamed professionalism. Will book again!"</p></div>
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#16a34a,#4ade80)">P</div><div><div class="rev-name">Priya Kapoor</div><div class="rev-trip">All Girls Kashmir Trip</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"As an all-girls group, safety was our top priority. Secure Travel nailed it — female trip leader, verified hotels, and 24/7 support. Kashmir was breathtaking the whole time!"</p></div>
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#7c3aed,#c084fc)">S</div><div><div class="rev-name">Sneha Joshi</div><div class="rev-trip">Bhutan Group Tour</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"Booked two days before departure and Sachin's team sorted everything in 48 hours — flights, hotels, guide, insurance. The trip was absolutely surreal. Highly recommend!"</p></div>
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#d97706,#fcd34d)">D</div><div><div class="rev-name">Dev Anand</div><div class="rev-trip">Meghalaya Expedition</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"The Meghalaya trek was magical. The itinerary was perfect, stays were comfortable, and the team had answers before we even had questions. Truly value for money!"</p></div>
+      <div class="rev-card"><div class="rev-head"><div class="rev-av" style="background:linear-gradient(135deg,#e8462a,#ff9966)">V</div><div><div class="rev-name">Vikram Bose</div><div class="rev-trip">Corporate Rishikesh Retreat</div></div></div><div class="rev-stars">★★★★★</div><p class="rev-text">"Our corporate retreat to Rishikesh was handled perfectly. Team-building activities, river rafting, and riverside dinners — all seamlessly coordinated. The team was incredible."</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="section" id="about">
+  <div class="s-eyebrow">Why Choose Us</div>
+  <h2 class="s-title">Built on Trust. Driven by Adventure.</h2>
+  <div class="why-grid">
+    <div style="position:relative">
+      <div class="why-img-box">🧭</div>
+      <div class="why-years-badge"><div class="wyb-num">9+</div><div class="wyb-lbl">Years Safe Travel</div></div>
+    </div>
+    <div>
+      <p class="why-desc">Secure Travel by Sachin Panwar was founded with one mission: make extraordinary adventures accessible without compromising on safety. Every trip is personally curated by Sachin and executed by a team of certified explorers.</p>
+      <p class="why-desc">As an ATOAI-registered operator, all our trip leaders carry BMC & AMC certifications with first-aid training. Our 100+ person on-ground team handles everything in-house — no outsourcing, no shortcuts.</p>
+      <div class="why-feats">
+        <div class="wfeat"><div class="wfeat-icon">🛡️</div><div><div class="wfeat-title">Free Travel Insurance</div><div class="wfeat-desc">Adventure coverage up to ₹4.5 lakhs included on every trip</div></div></div>
+        <div class="wfeat"><div class="wfeat-icon">🏅</div><div><div class="wfeat-title">BMC & AMC Certified Leaders</div><div class="wfeat-desc">All trip leaders are certified mountaineers with first-aid training</div></div></div>
+        <div class="wfeat"><div class="wfeat-icon">📞</div><div><div class="wfeat-title">24/7 On-Ground Support</div><div class="wfeat-desc">100+ team members providing round-the-clock assistance</div></div></div>
+        <div class="wfeat"><div class="wfeat-icon">🏍️</div><div><div class="wfeat-title">Premium Biking Setup</div><div class="wfeat-desc">New BS6 Royal Enfield Himalayan bikes with full riding gear</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SACHIN -->
+<section class="sachin-wrap" id="founder">
+  <div class="sachin-portrait-area">
+    <div class="sachin-circle">🧭</div>
+    <div class="sachin-name">Sachin Panwar</div>
+    <div class="sachin-role-lbl">Founder & Chief Explorer</div>
+  </div>
+  <div class="sachin-txt">
+    <div class="s-eyebrow" style="color:#e8462a">The Visionary Behind It All</div>
+    <h2 class="s-title" style="color:#fff;margin-bottom:20px">A Traveler Who Became<br>Your Trusted Guide</h2>
+    <p>Sachin Panwar didn't start a travel company — he started a movement. Having explored some of India's most remote terrain, Sachin understood that the greatest barrier to travel wasn't budget or time — it was <b style="color:#fff">trust</b>.</p>
+    <p>Secure Travel was born from Sachin's personal ethos: if you're going to take someone to the edge of the world, you better make sure they come back safely. Every protocol, every certification, every stay reflects that belief.</p>
+    <div class="sachin-quote">"The mountains don't care about your schedule. But we do. Secure Travel exists so you can wander freely, knowing someone has your back every step of the way."<cite>— Sachin Panwar, Founder</cite></div>
+    <div class="sachin-badges">
+      <span class="sbadge">🏛️ IIM Bangalore Incubated</span>
+      <span class="sbadge">🏆 MSME Award Winner</span>
+      <span class="sbadge">⭐ TripAdvisor Choice 2024</span>
+      <span class="sbadge">🏔️ ATOAI Registered</span>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="section section-alt">
+  <div class="s-row">
+    <div><div class="s-eyebrow">Explore The Map</div><h2 class="s-title">Top Destinations</h2></div>
+    <a href="#" class="view-all">View All →</a>
+  </div>
+  <div class="dest-grid">
+    <div class="dest-card feat">
+      <div class="dest-bg-layer" style="background:linear-gradient(135deg,#1a3d28,#071510)">🏔️</div>
+      <div class="dest-grad-layer"></div>
+      <div class="dest-info"><div class="dest-ctry">India</div><div class="dest-name">Ladakh</div><div class="dest-pkgs">12+ Packages · from ₹18,500</div></div>
+      <div class="dest-arrow-btn">→</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-bg-layer" style="background:linear-gradient(135deg,#1a3a50,#0a1628)">❄️</div>
+      <div class="dest-grad-layer"></div>
+      <div class="dest-info"><div class="dest-ctry">India</div><div class="dest-name">Spiti Valley</div><div class="dest-pkgs">8+ Packages · from ₹23,500</div></div>
+      <div class="dest-arrow-btn">→</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-bg-layer" style="background:linear-gradient(135deg,#3a1a1a,#1a0808)">🌸</div>
+      <div class="dest-grad-layer"></div>
+      <div class="dest-info"><div class="dest-ctry">India</div><div class="dest-name">Kashmir</div><div class="dest-pkgs">10+ Packages · from ₹26,500</div></div>
+      <div class="dest-arrow-btn">→</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-bg-layer" style="background:linear-gradient(135deg,#1a3a1a,#0a1a0a)">🌿</div>
+      <div class="dest-grad-layer"></div>
+      <div class="dest-info"><div class="dest-ctry">India</div><div class="dest-name">Meghalaya</div><div class="dest-pkgs">6+ Packages · from ₹23,500</div></div>
+      <div class="dest-arrow-btn">→</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-bg-layer" style="background:linear-gradient(135deg,#1a1a3a,#0a0a1a)">🏯</div>
+      <div class="dest-grad-layer"></div>
+      <div class="dest-info"><div class="dest-ctry">International</div><div class="dest-name">Bhutan</div><div class="dest-pkgs">9+ Packages · from ₹29,000</div></div>
+      <div class="dest-arrow-btn">→</div>
+    </div>
+    <div class="dest-card">
+      <div class="dest-bg-layer" style="background:linear-gradient(135deg,#0a2a3a,#0a1a28)">🌊</div>
+      <div class="dest-grad-layer"></div>
+      <div class="dest-info"><div class="dest-ctry">International</div><div class="dest-name">Bali</div><div class="dest-pkgs">22+ Packages · from ₹39,000</div></div>
+      <div class="dest-arrow-btn">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div style="text-align:center;margin-bottom:8px">
+    <div class="s-eyebrow ctr">FAQ</div>
+    <h2 class="s-title">Have Any Doubts?</h2>
+  </div>
+  <div class="faq-wrap">
+    <div class="faq-item open"><div class="faq-q" onclick="toggleFaq(this)">What makes Secure Travel different from other operators?<span class="faq-icon">+</span></div><div class="faq-a">Secure Travel, founded by Sachin Panwar, is ATOAI-registered with 9+ years of experience. All trip leaders are BMC/AMC certified with first-aid training. We provide free travel insurance up to ₹4.5 lakhs and operate with a 100+ in-house on-ground team — no third-party dependency, ever.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I travel solo with Secure Travel?<span class="faq-icon">+</span></div><div class="faq-a">Absolutely! Many of our travelers join group departures as solo adventurers and find their tribe during the journey. Our hand-picked stays and curated itineraries ensure you have both community time and personal space.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What safety measures are in place for biking trips?<span class="faq-icon">+</span></div><div class="faq-a">We provide new BS6 Royal Enfield Himalayan bikes with full riding gear and tools. A dedicated backup vehicle accompanies every convoy with fully equipped mechanical support. Our Bike Marshals are expert riders who know these terrains deeply.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How does the booking process work?<span class="faq-icon">+</span></div><div class="faq-a">Select your trip, review the package details, complete payment in the booking section, and you'll receive a confirmation email immediately. Our team will follow up within 24 hours with full trip information and next steps.</div></div>
+    <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What are All Girls Trips?<span class="faq-icon">+</span></div><div class="faq-a">All Girls Trips are a proud Secure Travel product where women from different backgrounds come together to explore incredible places, led by an experienced female trip leader. Safety, planning, and good company — all fully taken care of.</div></div>
+  </div>
+</section>
+
+<!-- RECOGNITIONS -->
+<section class="section section-alt">
+  <div style="text-align:center">
+    <div class="s-eyebrow ctr">Recognitions</div>
+    <h2 class="s-title">Trusted & Recognized</h2>
+  </div>
+  <div class="recog-row">
+    <div class="recog-chip"><span class="recog-ico">🏛️</span> IIM Bangalore · NSRCEL</div>
+    <div class="recog-chip"><span class="recog-ico">🏆</span> MSME Best Enterprise</div>
+    <div class="recog-chip"><span class="recog-ico">⭐</span> TripAdvisor Choice 2024</div>
+    <div class="recog-chip"><span class="recog-ico">🇮🇳</span> Startup India</div>
+    <div class="recog-chip"><span class="recog-ico">🏔️</span> ATOAI Registered</div>
+    <div class="recog-chip"><span class="recog-ico">🗺️</span> UP Tourism Operator</div>
+    <div class="recog-chip"><span class="recog-ico">📰</span> Business Standard</div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter-wrap" id="contact">
+  <div class="s-eyebrow ctr">Stay Connected</div>
+  <h2 class="s-title">Get the Best Trips Before Anyone Else</h2>
+  <p class="newsletter-sub">Exclusive offers, new destinations & travel tips from Sachin Panwar — straight to your inbox.</p>
+  <div class="nl-form">
+    <input type="email" class="nl-input" placeholder="your@email.com">
+    <button class="nl-btn">Subscribe Now</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="#" class="nav-logo" style="text-decoration:none;margin-bottom:0">
+        <div class="nav-logo-icon">🛡️</div>
+        <div><div class="nav-logo-text" style="color:#fff">Secure<span>Travel</span></div><span class="nav-logo-sub">by Sachin Panwar</span></div>
+      </a>
+      <p class="footer-brand-p">India's safest travel community. Every trip crafted with care, guided by experts, and backed by Sachin Panwar's personal promise: travel freely, return safely.</p>
+      <div class="footer-contacts">
+        <a href="tel:+919797000000">📞 +91 97970 00000</a>
+        <a href="mailto:sachin@securetravel.in">✉️ sachin@securetravel.in</a>
+        <a href="#">📍 Noida, Uttar Pradesh</a>
+      </div>
+    </div>
+    <div class="fc"><h4>Group Tours</h4><ul><li><a href="#">Backpacking Trips</a></li><li><a href="#">Himalayan Treks</a></li><li><a href="#">Biking Trips</a></li><li><a href="#">Upcoming Trips</a></li><li><a href="#">International Tours</a></li></ul></div>
+    <div class="fc"><h4>Customized</h4><ul><li><a href="#">Corporate Tours</a></li><li><a href="#">Domestic Packages</a></li><li><a href="#">International Getaways</a></li><li><a href="#">Honeymoon Trips</a></li><li><a href="#">All Girls Trips</a></li></ul></div>
+    <div class="fc"><h4>Company</h4><ul><li><a href="#">About Sachin Panwar</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Travel Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Secure Travel by Sachin Panwar. All rights reserved.</span>
+    <span>Wander Freely · Travel Securely · Return Safely</span>
+  </div>
+</footer>
+
+<script>
+// Filter tabs
+document.querySelectorAll('.f-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.f-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// FAQ toggle
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.trip-card, .wfeat, .dest-card, .recog-chip, .cat-item, .sb-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  io.observe(el);
+});
+
+// Sticky nav
+window.addEventListener('scroll', () => {
+  document.querySelector('.navbar').style.boxShadow =
+    window.scrollY > 10 ? '0 2px 20px rgba(0,0,0,0.13)' : '0 2px 12px rgba(0,0,0,0.08)';
+});
+</script>
+</body>
+</html>
