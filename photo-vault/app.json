@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Photo Vault",
+    "slug": "photo-vault",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.sachinpanwar.photovault"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0f1115",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.sachinpanwar.photovault"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-background-task",
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Photo Vault reads your photos so it can encrypt them and back them up to your private GitHub repository.",
+          "savePhotosPermission": "Photo Vault saves photos you restore from your backup.",
+          "granularPermissions": [
+            "photo"
+          ]
+        }
+      ],
+      "expo-image"
+    ],
+    "scheme": "photovault",
+    "backgroundColor": "#0f1115"
+  }
+}
